@@ -1,15 +1,9 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	let {
-		children,
-		ref = $bindable(),
-		...restProps
-	}: HTMLAttributes<HTMLElement> & {
-		ref?: HTMLElement;
-	} = $props();
+	let { children, ...restProps }: HTMLAttributes<HTMLElement> = $props();
 </script>
 
-<div bind:this={ref} class="component" {...restProps}>
+<div {...restProps}>
 	{@render children?.()}
 </div>
